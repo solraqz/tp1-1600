@@ -1,12 +1,23 @@
 // Autheurs : Abass, Ely Cheikh - Brizini, Mahfoud - Chekkaf, Mehdi
-// Modifié par : Vos noms et vos matricules
+// Modifié par : Alfred Galibois-Bouchard (2278383) et Carlos Tabet()
 // Date : 2024-01-26
 
 #include <stdio.h>
 
 int syracuse(int u0, int nb) {
     // Cette fonction devrait retourner le nbième terme de la suite
-    return -1;
+    for (int i = 0; i < nb; i++)
+    {
+        if (u0 % 2 == 0)
+        {
+            u0 = u0 / 2;
+        }
+        else
+        {
+            u0 = (3 * u0) + 1;
+        }
+    }
+    return u0;
 }
 
 int main() {

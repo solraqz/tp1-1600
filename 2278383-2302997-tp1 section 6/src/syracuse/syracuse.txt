@@ -1,0 +1,31 @@
+section .text
+global main
+main:
+    ld u, [ADR]
+    ld nombreDeTermes, [ADR]
+
+    loop_start:
+        jz loop_end
+        st u, [ADR]
+        shr
+        jz even
+        ld u, [ADR]
+        add u, u, 1  ; Add 1 to u for the odd case
+        jmp continue_loop
+
+    even:
+        ld u, [ADR]
+        shr
+
+    continue_loop:
+        sub nombreDeTermes, 1
+        jmp loop_start
+
+    loop_end:
+        st u, [awnser]
+
+section .data
+    u:15
+    nombreDeTermes : 3
+    ADR:0
+    awnser:0
