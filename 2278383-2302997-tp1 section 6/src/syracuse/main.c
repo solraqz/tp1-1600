@@ -1,5 +1,5 @@
 // Autheurs : Abass, Ely Cheikh - Brizini, Mahfoud - Chekkaf, Mehdi
-// Modifié par : Alfred Galibois-Bouchard (2278383) et Carlos Tabet()
+// Modifié par : Alfred Galibois-Bouchard (2278383) et Carlos Tabet(2302997)
 // Date : 2024-01-26
 
 #include <stdio.h>
