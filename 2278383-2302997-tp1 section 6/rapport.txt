@@ -1,0 +1,11 @@
+PARTIE1:
+Q0/0,00 points Indiquez votre valeur1 et de valeur2 ou il est marqué ICI dans le code.
+La valeur1 est 11 et la valeur2 est 14.
+Q1/0,25 point Quelles sont les structures de contrôle utilisées au sein de ce programme ?
+on utilise une boocle qui a comme condition d'arret qu'une des deux valeurs atteint 0.
+Q2/0,25 point Quel est le contenu en mémoire à l’adresse 0x0017 (qui diffère selon votre valeur de data) à la fin de l’exécution de ce programme ?
+C'est la valeur de answer qui est sauvegarder a cette adresse.
+Q3/0,25 point Que fait ce programme ? Répondez à la question en décrivant le principe de fonctionnement du programme en évitant de référer à son contenu ligne par ligne.
+Le programme trouve le minimum entre les deux valeurs et le store a l'adresse 0x0017.
+PARTIE2:
+

@@ -1,0 +1,39 @@
+.text
+ld nTerme
+brz terme0
+sub one
+brz terme1
+st nTerme
+br loop1
+loop1:
+ld n0
+add n1
+st n
+ld n1
+st n0
+ld n
+st n1
+ld nTerme
+sub one
+brz end
+st nTerme
+br loop1
+terme0:
+ld n0
+st answer
+stop
+terme1:
+ld n1
+st answer
+stop
+end:
+ld n
+st answer
+stop
+.data
+nTerme: 12
+n0: 0
+n1: 1
+n: 0
+answer: 0
+one: 1
