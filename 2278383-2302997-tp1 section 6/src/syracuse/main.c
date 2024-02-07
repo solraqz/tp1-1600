@@ -5,16 +5,15 @@
 #include <stdio.h>
 
 int syracuse(int u0, int nb) {
-    // Cette fonction devrait retourner le nbième terme de la suite
     for (int i = 0; i < nb; i++)
     {
-        if (u0 % 2 == 0)
+        if (u0 & 1)
         {
-            u0 = u0 / 2;
+            u0 = 3 * u0 + 1;
         }
-        else
+        else 
         {
-            u0 = (3 * u0) + 1;
+            u0 = u0/2;
         }
     }
     return u0;

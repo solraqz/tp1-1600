@@ -1,31 +1,40 @@
-section .text
-global main
-main:
-    ld u, [ADR]
-    ld nombreDeTermes, [ADR]
-
-    loop_start:
-        jz loop_end
-        st u, [ADR]
-        shr
-        jz even
-        ld u, [ADR]
-        add u, u, 1  ; Add 1 to u for the odd case
-        jmp continue_loop
-
-    even:
-        ld u, [ADR]
-        shr
-
-    continue_loop:
-        sub nombreDeTermes, 1
-        jmp loop_start
-
-    loop_end:
-        st u, [awnser]
-
-section .data
-    u:15
-    nombreDeTermes : 3
-    ADR:0
-    awnser:0
+.text
+loop1:
+lda u
+sta MA
+ld MA
+and un
+brz operation_pair
+br operation_impair
+operation_pair:
+ld MA
+shr
+st u
+ld nombreDeTermes
+sub un
+st nombreDeTermes
+brz fin
+br loop1
+operation_impair:
+adda u
+adda u
+adda un
+sta MA
+ld MA
+st u
+ld nombreDeTermes
+sub un
+st nombreDeTermes
+brz fin
+br loop1
+fin:
+ld u
+st anwser
+stop
+.data
+u: 15
+nombreDeTermes: 3
+temp: 0
+anwser: 0
+MA: 0
+un: 1
