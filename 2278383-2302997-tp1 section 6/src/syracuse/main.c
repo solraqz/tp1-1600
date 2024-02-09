@@ -7,11 +7,12 @@
 int syracuse(int u0, int nb) {
     for (int i = 0; i < nb; i++)
     {
-        if (u0 & 1)
+        int temp = 2*(u0/2);
+        if (temp - u0)
         {
-            u0 = 3 * u0 + 1;
+            u0 = (3*u0) + 1;
         }
-        else 
+        else
         {
             u0 = u0/2;
         }
