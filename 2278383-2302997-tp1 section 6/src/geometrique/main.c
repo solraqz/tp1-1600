@@ -4,8 +4,28 @@
 #include <stdio.h>
 
 int calculerNiemeTerme(int a0, int r, int nb) {
-    // Cette fonction devrait retourner le nième terme de la série
-    return -1;
+    int answer;
+    nb--;
+    if (nb == 0)
+    {
+        answer = a0;
+        return answer;
+    }
+    nb--;
+    if (nb == 0)
+    {
+        answer = a0 * r;
+        return answer;
+    }
+    answer = r;
+    while (nb != 0)
+    {
+        answer *= r;
+        nb--;
+    }
+    answer *= a0;
+    return answer;
+    
 }
 
 int main() {
