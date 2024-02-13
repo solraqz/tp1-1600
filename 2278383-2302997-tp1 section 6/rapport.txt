@@ -8,4 +8,12 @@ C'est la valeur de answer qui est sauvegarder a cette adresse.
 Q3/0,25 point Que fait ce programme ? Répondez à la question en décrivant le principe de fonctionnement du programme en évitant de référer à son contenu ligne par ligne.
 Le programme trouve le minimum entre les deux valeurs et le store a l'adresse 0x0017.
 PARTIE2:
-
+Q2/0,25 point Identifier votre plage de possibilités et les raisons qui amènent cette étendue.
+Le code s'arrete au 15eme terme a cause de la limite de 511 instructions.
+PARTIE3.1.2
+Q2/0,25 point: Expliquez comment chaque terme de la suite est calculé et stocké dans votre programme, 
+discutez ensuite des limitations de votre approche en termes de ressources et d'efficacité. Comment votre 
+programme pourrait-il être amélioré si la contrainte de 511 instructions était levée ?
+Les premier et deuxieme termes sont gerés par des conditions a cause de leur nature differente. 
+Ensuite pour le 3eme terme ou plus on fait une boucle qui multiplie la raison par elle-meme n-1 fois et le store dans answer qui est ensuite multiplié avec le terme a1 initial a la fin du code.
+Le programme n'est presentement pas limiter par la contrainte d'instruction mais plutot par un nombre maximal que l'ACC atteint celui-ci semble etre -32768 il est obtenu lorsqu'on cherche le 16eme terme avec r=2 le nombre dans ACC devient negatif et a la prochaine boucle il devient 0.
