@@ -1,0 +1,39 @@
+.text
+ld n
+sub one
+brz terme1
+sub one
+brz terme2
+st n
+ld r
+st answer
+br loop1
+terme1:
+ld a1
+st answer
+stop
+terme2:
+ld a1
+mul r
+st answer
+stop
+loop1:
+ld answer
+mul r
+st answer
+ld n
+sub one
+brz end
+st n
+br loop1
+end:
+ld answer
+mul a1
+st answer
+stop
+.data
+a1: 2
+r: 2
+n: 5
+answer: 0
+one: 1
