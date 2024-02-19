@@ -1,83 +1,87 @@
 .data
-string1:
-    .asciz  "chien" 
-length1:
-    .int 0
-sum1:
-    .int 0
-string2:
-    .asciz  "niche"
-length2:
-    .int 0
-sum2:
-    .int 0
-faux:
-    .asciz "Faux"
-vrai:
-    .asciz "Vrai"
+    string1:
+        .asciz  "chien" 
+    length:
+        .int 0
+    sum1:
+        .int 0
+    sum2:
+        .int 0
+    string2:
+        .asciz  "niche"
+    faux:
+        .asciz "Pas Anagramme"
+    vrai:
+        .asciz "Anagramme"
 
 .text
 .globl anagramme
-main:
-anagramme: 
 
-    # VOTRE CODE ICI
-
-main : 
-    push %ebp
-    mov %esp, %ebp
-    push %ebx
-    xor %eax, %eax          
-    xor %ecx, %ecx
-    xor %ebx, %ebx
-    xor %edx, %edx
-    movl $string1, %esi
-    movl $length1, %edi
-    movl $sum1, %ebx
+anagramme:
+push %ebp
+mov %esp, %ebp
+push %ebx
+xor %eax, %eax          
+xor %ebx, %ebx
+xor %ecx, %ecx
+xor %edi, %edi
+xor %esi, %esi
+movl $string1, %esi
+movl %edi, length
 
 trouve_longueur1:
-    lodsb
-    cmp $0, %al
-    je init_chaine2
-    addl %eax, (%ebx)
-    incl (%edi)
-    jmp trouve_longueur1
+lodsb
+cmp $0, %al
+je init_chaine2
+addl %eax, %ebx
+incl %edi
+jmp trouve_longueur1
 
 init_chaine2:
-    movl $string2, %esi
-    movl $length2, %edi
-    movl $sum2, %ecx
+xor %esi, %esi
+movl %edi, length
+movl $string2, %esi
+xor %edi, %edi
+xor %eax, %eax
 
 trouve_longueur2:
-    lodsb
-    cmp $0, %al
-    je compare_longueur
-    addl %eax, (%ecx)
-    incl (%edi)
-    jmp trouve_longueur2
+lodsb
+cmp $0, %al
+je compare_longueur
+addl %eax, %ecx
+incl %edi
+jmp trouve_longueur2
 
 compare_longueur:
-    cmp %edi, %ebx
-    je compare_sommes
-    jmp pas_anagramme
+cmp %edi,length
+je compare_sommes
+jmp pas_anagramme
 
 compare_sommes:
-    cld
-    rep cmpsb 
-    jne pas_anagramme 
-    push $vrai
-    call printf
-    add $4, %esp
-    jmp bye
+cmp $0, %edi
+je pas_anagramme
+movl %ebx, %eax
+addl length, %eax
+movl %eax, %ebx
+movl %ecx, %eax
+addl length, %eax
+movl %eax, %ecx
+cmp %ebx, %ecx
+jne pas_anagramme
+push $vrai
+call printf
+add $4, %esp
+jmp bye
 
 pas_anagramme:
-    push $faux
-    call printf
-    add $4, %esp
+push $faux
+call printf
+add $4, %esp
 
 bye:
-    popl %ebx
-    popl %ebp
-    ret
+popl %ebx
+popl %ebp
+ret
+
 
 
